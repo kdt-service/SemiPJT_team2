@@ -18,6 +18,7 @@ def okt_tokenize(text, stopwords):
     for token in filtered_tokens:
         tagged_token = okt.pos(token)
         # 'Noun', 'Verb' 태그를 가진 토큰만 추가
+        # ('단어','태그')형태이므로 태그부분 참조
         Tag += [t for t in tagged_token if t[1] in ('Noun', 'Verb')]
     return Tag  # 태깅된 토큰들
 

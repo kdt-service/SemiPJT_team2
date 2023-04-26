@@ -1,7 +1,7 @@
 import pandas as pd
 from konlpy.tag import Mecab
 
-df = pd.read_csv('./jobkorea.csv')
+df = pd.read_csv('./jobkorea_unique0.95.csv')
 
 # 한국어 불용어 불러오기
 # 공백문자 제거하고 set으로 저장함(중복제거)
@@ -18,9 +18,10 @@ def mecab_tokenize(text, stopwords):
     for token in filtered_tokens:
         tagged_token = mecab.pos(token)
         # 'NNG', 'NNP', 'NNB', 'NR', 'VV' 태그를 가진 토큰만 추가
+        # ('단어','태그')형태이므로 태그부분 참조
         Tag += [t for t in tagged_token if t[1] in ('NNG', 'NNP', 'NNB', 'NR', 'VV')]
     return Tag  # 태깅된 토큰들
 
 # 데이터프레임에 불용어 처리된 품사 태깅 결과를 저장
 df['pos'] = df['answer'].apply(lambda x: mecab_tokenize(x, stopwords))
-df.to_csv('jobkorea_pos_mecab_NV.csv')
+df.to_csv('jobkorea_pos_mecab_NV_0.95.csv')
