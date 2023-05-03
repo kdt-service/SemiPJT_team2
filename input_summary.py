@@ -16,7 +16,7 @@ class TextSummary:
             return "입력한 텍스트의 문장 수가 5개 미만이므로 요약하지 않습니다."
         
         # 답변 요약 및 반환
-        summary = summarize(self.input_text, word_count=100)
+        summary = summarize(self.input_text, word_count=140)
         if summary == "":
             return "요약 결과가 없습니다."
         else:
@@ -26,4 +26,7 @@ if __name__ == "__main__":
     input_text = input("문자열을 입력하세요: ")
     text_summary = TextSummary(input_text)
     summarized_text = text_summary.summarize_text()
-    print("요약 결과:\n", summarized_text)
+    #요약결과 summarize.txt 파일에 저장
+    f= open('summarize.txt','w')
+    f.write(summarized_text)
+    f.close()
