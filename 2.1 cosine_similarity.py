@@ -1,9 +1,11 @@
 import pandas as pd
+import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-df = pd.read_csv('./jobkorea_unique0.ky.csv')
+df = pd.read_csv('jobkorea_question_labeled_mecab.csv')
 
+#4. cosine similarity로 한 사람이 여러 기업에 똑같은 자소서로 지원
 # 데이터 전처리 및 벡터화
 vectorizer = TfidfVectorizer()
 # answer컬럼 데이터값을 벡터화하여 X에 저장(TF-IDF를 사용하면 단어의 중요도를 고려한 수치화 가능)
@@ -37,4 +39,4 @@ for i in range(len(df)):
 # 이 값으로 행을 선택
 unique_df = df[pd.Series(dup_check)]
 ## 수정하면 파일 이름 변경! ##
-unique_df.to_csv('jobkorea_unique0.95.csv', index=False, encoding='UTF-8')
+unique_df.to_csv('/home/ubuntu/workspace/SemiPJT_team2/jobkorea_all_cleansing_done.csv', index=False, encoding='UTF-8')
