@@ -17,14 +17,17 @@
 - ✔️ Check out our [Notion](https://www.notion.so/Semi-Project-Team-2-f7fe7122726345caae4a057fefa25620)
 
 ## ⚙️ 개발환경
-- 
--
--
--
--
--
--
--
+- Python 3.8.16
+- beautifulsoup4           4.12.2 
+- gensim                   3.8.3
+- konlpy                   0.6.0
+- mecab-python3            1.0.6
+- scikit-learn             1.0
+- streamlit                1.22.0
+- streamlit-option-menu    0.3.2
+- tokenizers               0.13.3
+- transformers             4.28.1
+
 ## ❓ 프로젝트 계획 이유
 
 <img src ="https://user-images.githubusercontent.com/84755366/236082873-b3249c91-1b20-40d9-97bc-314dac009048.png" width="300" height="300"/>
